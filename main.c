@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 int	ft_isdigit(char	nb)
 {
-	if (nb < '0' || nb > '9')
+	if (!(nb >= '0' && nb <= '9')
 		return (0);
 	return (1);
 }
@@ -34,22 +34,20 @@ int	main(int argc, char **argv)
 	int	x;
 	int	y;
 
+	x = 1;
 	while (argc > 1)
 	{
-		x = argc -1;
 		y = 0;
 		while (argv[x][y])
 		{
-			if (argv[x][y] != ' ')
-			{
-				printf("%c\n",argv[x][y]);
-				if (!ft_isdigit(argv[x][y]))
-					printf("notok\n");
-				else
-					printf("ok\n");
-			}
+			printf("%c", argv[x][y]);
+			if (!ft_isdigit(argv[x][y]))
+				printf("notok\n");
+			else
+				printf("ok\n");
 			y++;
 		}
+		x++;
 		argc--;
 	}
 	return (0);
