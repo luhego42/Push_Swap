@@ -1,26 +1,5 @@
 #include "header.h"
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	if (s != NULL)
-	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
-	}
-}
-
-int	ft_isdigit(char	nb)
-{
-	if (!(nb >= '0' && nb <= '9')
-		return (0);
-	return (1);
-}
+#include <stdio.h>
 
 /*void	ft_exit(int exit_code)
 {
@@ -49,6 +28,7 @@ int	main(int argc, char **argv)
 		}
 		x++;
 		argc--;
+		ft_putchar_fd('a', 1);
 	}
 	return (0);
 }
