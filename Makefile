@@ -8,23 +8,21 @@ CC			= clang
 
 CFLAGS		= -Wall -Wextra -Werror
 
-LIBFT		= Libft/libft.a
-
-$(LIBFT):
-	make -C Libft
+LIBFT.A		= Libft/libft.a
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ) $(LIBFT)
-			clang $(OBJ) $(CFLAGS) $(LIBFT) -o $(NAME)
+$(NAME):	$(OBJ)
+				make -C Libft
+				clang $(OBJ) $(CFLAGS) $(LIBFT.A) -o $(NAME)
 
 clean:
-			@make clean -sC Libft
-			rm -f $(OBJ)
+				@make clean -sC Libft
+				rm -f $(OBJ)
 
 fclean:		clean
-			@make fclean -sC Libft
-			rm -f $(NAME)
+				@make fclean -sC Libft
+				rm -f $(NAME)
 
 re:			fclean all
 
