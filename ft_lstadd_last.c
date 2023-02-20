@@ -6,11 +6,11 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:21:34 by luhego            #+#    #+#             */
-/*   Updated: 2023/02/15 17:17:31 by luhego           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:00:05 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 void	ft_lstadd_last(t_numbers **lst, t_numbers *new)
 {
@@ -20,12 +20,12 @@ void	ft_lstadd_last(t_numbers **lst, t_numbers *new)
 	{
 		if (*lst == NULL)
 			*lst = new;
-	}
-	else
-	{
-		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
-		return (tmp);
+		else
+		{
+			tmp = *lst;
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = new;
+		}
 	}
 }
