@@ -4,12 +4,16 @@ SRC			=	./main.c \
 			 	./ft_clear_lst.c \
 				./ft_lstadd_last.c \
 				./ft_new_list.c \
+				./ft_atol.c \
+				./ft_parsing.c \
+				./ft_movement.c \
+				./ft_sort_list.c \
 
 OBJ			=	$(SRC:.c=.o)
 
 CC			=	clang
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-g -Wall -Wextra -Werror
 
 LIBFT.A		=	Libft/libft.a
 
