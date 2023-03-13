@@ -6,7 +6,7 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:34:06 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/10 16:29:40 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/13 17:42:14 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		printf("content = %ld, index = %i\n", nb->content, nb->index);
 		nb = nb->next;
 	}
-	swap(&tmp, 'A');
+	ft_swap(&tmp, 'A');
 	nb = tmp;
 	while (nb)
 	{
