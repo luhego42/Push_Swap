@@ -6,7 +6,7 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:33:59 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/15 16:23:36 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/22 16:07:31 by #H42USER         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void		ft_rotate_a_b(t_numbers **stack_a, t_numbers **stack_b);
 void		ft_reverse_rotate(t_numbers **stack, char c);
 void		ft_reverse_rotate_a_b(t_numbers **stack_a, t_numbers **stack_b);
 long int	ft_atol(const char *nptr);
+void		ft_push_b(t_numbers **stack_a, t_numbers **stack_b, int cut);
 t_numbers	*ft_parsing(char *str_nb);
 t_numbers	*ft_new_list(long content);
 #endif

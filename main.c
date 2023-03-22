@@ -39,6 +39,11 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	stack_a = ft_parsing(argv[1]);
 	ft_print_list(stack_a);
+	printf("\n\n");
+	ft_push_b(&stack_a, &stack_b, 25);
+	ft_print_list(stack_b);
+/*
+	ft_print_list(stack_a);
 	ft_push(&stack_b, &stack_a, 'B');
 	ft_push(&stack_b, &stack_a, 'B');
 	ft_push(&stack_b, &stack_a, 'B');
@@ -75,6 +80,6 @@ int	main(int argc, char **argv)
 	ft_reverse_rotate_a_b(&stack_a, &stack_b);
 	ft_print_list(stack_a);
 	ft_print_list(stack_b);
-	
+*/	
 	return (0);
 }
