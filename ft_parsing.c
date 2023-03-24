@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> // a enlever
 
 static void	ft_check_args(t_numbers *lst_nb)
 {
@@ -22,19 +21,19 @@ static void	ft_check_args(t_numbers *lst_nb)
 	while (i)
 	{
 		if (i->content > INT_MAX || i->content < INT_MIN)
-			ft_exit(1);
+			ft_exit(1, &lst_nb);
 		j = i->next;
 		while (j)
 		{
 			if (j->content == i->content && j != i)
-				ft_exit(1);
+				ft_exit(1, &lst_nb);
 			j = j->next;
 		}
 		i = i->next;
 	}
 }
 
-static void	ft_normalise(t_numbers *lst_nb)
+static void	ft_index(t_numbers *lst_nb)
 {
 	t_numbers	*i;
 	t_numbers	*j;
@@ -54,11 +53,11 @@ static void	ft_normalise(t_numbers *lst_nb)
 	}
 }
 
-static t_numbers	*ft_creat_list(char *nb)
+static t_numbers	*ft_create_list(char *nb)
 {
 	t_numbers	*lst_nb;
-	int			i;
 	t_numbers	*new_list_return;
+	int			i;
 
 	i = 0;
 	lst_nb = 0;
@@ -74,11 +73,11 @@ static t_numbers	*ft_creat_list(char *nb)
 		if ((nb[i]) && (nb[i] == '+' || nb[i] == '-'))
 			i++;
 		if (nb[i] && !ft_isdigit(nb[i]))
-			ft_exit(1);
+			ft_exit(1, &lst_nb);
 		while (nb[i] && ft_isdigit(nb[i]))
 			i++;
 		if (nb[i] && !ft_isdigit(nb[i]) && nb[i] != ' ')
-			ft_exit(1);
+			ft_exit(1, &lst_nb);
 	}
 	return (lst_nb);
 }
@@ -87,9 +86,11 @@ t_numbers	*ft_parsing(char *nb)
 {
 	t_numbers	*lst_nb;
 
-	lst_nb = ft_creat_list(nb);
+	lst_nb = 0;
+	lst_nb = ft_create_list(nb);
+	if (!lst_nb)
+		ft_exit(1, 0);
 	ft_check_args(lst_nb);
-	ft_normalise(lst_nb);
-//	printf("%ld, %ld, %ld", lst_nb->content, lst_nb->next->content, lst_nb->next->next->content);
+	ft_index(lst_nb);
 	return (lst_nb);
 }

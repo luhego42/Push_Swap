@@ -12,22 +12,62 @@
 
 #include "push_swap.h"
 
-t_numbers	*ft_push_b(t_numbers *stack_a)
+void	ft_smart_rotate(t_numbers **stack, int stack_max)
 {
-	t_numbers	*stack_b;
-	while (stack_a)
+	t_numbers	*tmp;
+	int	i;
+
+	tmp = *stack;
+	i = 0;
+	while (tmp && tmp->index != stack_max)
 	{
-		ft_push(&stack_b, &stack_a, 'B');
+		tmp = tmp->next;
+		i++;
 	}
-	return (stack_b);
+	if (i < stack_max / 2)
+		ft_rotate(stack, 'B');
+	else
+		ft_reverse_rotate(stack, 'B');
 }
 
-t_numbers	*ft_push_a(t_numbers *stack_b)
+void	ft_push_b(t_numbers **stack_a, t_numbers **stack_b, int cut)
 {
-	t_numbers	*stack_a;
-	while (stack_b)
+	int			size;
+	int			push_b_count;
+
+	push_b_count = 0;
+	size = 0;
+	while (*stack_a)
 	{
-		ft_push(&stack_a, &stack_b, 'A');
+		if ((*stack_a)->index < size + cut)
+		{
+			ft_push(stack_b, stack_a, 'B');
+			push_b_count++;
+		}
+		else
+			ft_rotate(stack_a, 'A');
+		if (*stack_b && (*stack_b)->index <= size + (cut / 2))
+			ft_rotate(stack_b, 'B');
+		if (push_b_count == cut)
+		{
+			push_b_count = 0;
+			size = size + cut;
+		}
 	}
-	return (stack_a);
+}
+
+void	ft_push_a(t_numbers **stack_a, t_numbers **stack_b, int stack_max)
+{
+	while (*stack_b)
+	{
+		if ((*stack_b)->index == stack_max)
+		{
+			ft_push(stack_a, stack_b, 'A');
+			stack_max--;
+		}
+		else if ((*stack_b)->index != stack_max)
+		{
+			ft_smart_rotate(stack_b, stack_max);
+		}
+	}
 }

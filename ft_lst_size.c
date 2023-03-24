@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_lst.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 16:10:35 by luhego            #+#    #+#             */
-/*   Updated: 2023/02/20 16:54:40 by luhego           ###   ########.fr       */
+/*   Created: 2022/10/25 18:22:47 by luhego            #+#    #+#             */
+/*   Updated: 2022/10/26 18:35:45 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_clear_lst(t_numbers **lst)
+int	ft_lst_size(t_numbers *lst)
 {
 	t_numbers	*tmp;
+	int		list_len;
 
-	if (!lst)
-		return ;
-	while (*lst)
+	tmp = lst;
+	list_len = 0;
+	while (tmp)
 	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
+		tmp = tmp->next;
+		list_len++;
 	}
+	return (list_len);
 }

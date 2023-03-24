@@ -3,6 +3,7 @@ NAME		=	push_swap
 SRC			=	./main.c \
 			 	./ft_clear_lst.c \
 				./ft_lstadd_last.c \
+				./ft_lst_size.c \
 				./ft_new_list.c \
 				./ft_atol.c \
 				./ft_parsing.c \
