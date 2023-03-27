@@ -9,6 +9,8 @@ SRC			=	./main.c \
 				./ft_parsing.c \
 				./ft_movement.c \
 				./ft_sort_list.c \
+				./ft_check_list.c \
+				./ft_swap_stack.c
 
 OBJ			=	$(SRC:.c=.o)
 

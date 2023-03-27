@@ -6,7 +6,7 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:34:06 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/15 18:36:36 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/27 19:22:06 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 {
 	t_numbers	*stack_a;
 	t_numbers	*stack_b;
+	int			cut;
 
 	if (argc != 2)
 		ft_exit(1, 0);
@@ -32,8 +33,17 @@ int	main(int argc, char **argv)
 	stack_a = ft_parsing(argv[1]);
 	if (!ft_check_list(stack_a))
 	{
-		ft_push_b(&stack_a, &stack_b, 25);
-		argc = ft_lst_size(stack_b);
+		argc = ft_lst_size(stack_a);
+		if (argc < 6)
+		{
+			ft_little_sort(&stack_a, &stack_b, argc);
+			return (0);
+		}
+		else if (argc < 150)
+			cut = 25;
+		else
+			cut = 63;
+		ft_push_b(&stack_a, &stack_b, cut);
 		ft_push_a(&stack_a, &stack_b, argc - 1);
 	}
 	ft_clear_lst(&stack_a);

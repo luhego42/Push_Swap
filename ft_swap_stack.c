@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_size.c                                      :+:      :+:    :+:   */
+/*   ft_swap_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 18:22:47 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/27 16:32:07 by luhego           ###   ########.fr       */
+/*   Created: 2023/03/27 16:42:41 by luhego            #+#    #+#             */
+/*   Updated: 2023/03/27 16:54:29 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h> //to rm
 
-int	ft_lst_size(t_numbers *lst)
+void	ft_swap(t_numbers **stack, char c)
 {
 	t_numbers	*tmp;
-	int			list_len;
 
-	tmp = lst;
-	list_len = 0;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		list_len++;
-	}
-	return (list_len);
+	if (!*stack || !(*stack)->next)
+		return ;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = tmp->next->next;
+	(*stack)->next = tmp;
+	if (c == 'A')
+		printf("sa\n"); // to rm
+	else if (c == 'B')
+		printf("sb\n"); // to rm
+}
+
+void	ft_swap_a_b(t_numbers **stack_a, t_numbers **stack_b)
+{
+	ft_swap(stack_a, 0);
+	ft_swap(stack_b, 0);
+	printf("ss\n"); // to rm
 }
