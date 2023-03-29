@@ -6,7 +6,7 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:42:04 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/07 15:45:21 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/29 19:12:40 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static void	ft_check_args(t_numbers *lst_nb)
 	while (i)
 	{
 		if (i->content > INT_MAX || i->content < INT_MIN)
-			ft_exit(1, &lst_nb);
+			ft_exit(2, &lst_nb);
 		j = i->next;
 		while (j)
 		{
 			if (j->content == i->content && j != i)
-				ft_exit(1, &lst_nb);
+				ft_exit(2, &lst_nb);
 			j = j->next;
 		}
 		i = i->next;
@@ -89,7 +89,7 @@ t_numbers	*ft_parsing(char *nb)
 	lst_nb = 0;
 	lst_nb = ft_create_list(nb);
 	if (!lst_nb)
-		ft_exit(1, 0);
+		ft_exit(2, 0);
 	ft_check_args(lst_nb);
 	ft_index(lst_nb);
 	return (lst_nb);

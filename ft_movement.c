@@ -6,12 +6,11 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:38:29 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/27 19:26:00 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/29 18:34:51 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> // to rm
 
 void	ft_push(t_numbers **stack_1, t_numbers **stack_2, char c)
 {
@@ -24,9 +23,9 @@ void	ft_push(t_numbers **stack_1, t_numbers **stack_2, char c)
 		tmp->next = *stack_1;
 		*stack_1 = tmp;
 		if (c == 'A')
-			printf("pa\n"); // to rm
+			ft_putstr_fd("pa\n", 1);
 		else if (c == 'B')
-			printf("pb\n"); // to rm
+			ft_putstr_fd("pb\n", 1);
 	}
 }
 
@@ -41,16 +40,17 @@ void	ft_rotate(t_numbers **stack, char c)
 	tmp->next = NULL;
 	ft_lstadd_last(stack, tmp);
 	if (c == 'A')
-		printf("ra\n"); // to rm  // print_move("ra");
+		ft_putstr_fd("ra\n", 1);
 	else if (c == 'B')
-		printf("rb\n"); // to rm  // print_move("rb");
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	ft_rotate_a_b(t_numbers **stack_a, t_numbers **stack_b)
+void	ft_rotate_a_b(t_numbers **stack_a, t_numbers **stack_b, char c)
 {
 	ft_rotate(stack_a, 0);
 	ft_rotate(stack_b, 0);
-	printf("rr\n"); // to rm
+	if (c)
+		ft_putstr_fd("rr\n", 1);
 }
 
 void	ft_reverse_rotate(t_numbers **stack, char c)
@@ -68,14 +68,15 @@ void	ft_reverse_rotate(t_numbers **stack, char c)
 	lst_last->next = *stack;
 	*stack = lst_last;
 	if (c == 'A')
-		printf("rra\n");// to rm
+		ft_putstr_fd("rra\n", 1);
 	else if (c == 'B')
-		printf("rrb\n"); // to rm
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	ft_reverse_rotate_a_b(t_numbers **stack_a, t_numbers **stack_b)
+void	ft_rrr(t_numbers **stack_a, t_numbers **stack_b, char c)
 {
 	ft_reverse_rotate(stack_a, 0);
 	ft_reverse_rotate(stack_b, 0);
-	printf("rrr\n"); // to rm
+	if (c)
+		ft_putstr_fd("rrr\n", 1);
 }

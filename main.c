@@ -6,7 +6,7 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:34:06 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/27 19:22:06 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/29 19:11:39 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_exit(int exit_code, t_numbers **stack_a)
 {
-	if (exit_code)
+	if (exit_code == 2)
 		ft_putstr_fd("Error\n", 2);
 	if (stack_a && *stack_a)
 		ft_clear_lst(stack_a);

@@ -6,7 +6,7 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:29:55 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/28 17:42:47 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/29 18:19:54 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_push_b(t_numbers **stack_a, t_numbers **stack_b, int cut)
 			push_b_count++;
 			if (*stack_b && (*stack_b)->index < size + (cut / 2)
 				&& *stack_a && (*stack_a)->index > size + cut)
-				ft_rotate_a_b(stack_a, stack_b);
+				ft_rotate_a_b(stack_a, stack_b, 1);
 			else if (*stack_b && (*stack_b)->index < size + (cut / 2))
 				ft_rotate(stack_b, 'B');
 		}

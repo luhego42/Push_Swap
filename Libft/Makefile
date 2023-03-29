@@ -6,7 +6,7 @@
 #    By: luhego <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 17:45:23 by luhego            #+#    #+#              #
-#    Updated: 2022/11/01 14:55:54 by luhego           ###   ########.fr        #
+#    Updated: 2023/03/29 19:02:32 by luhego           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC			=	ft_bzero.c \
 				ft_itoa.c \
 				ft_strtrim.c \
 				ft_strjoin.c \
-				ft_split.c
+				ft_split.c \
+				get_next_line.c
 
 SRC_BONUS	= 	ft_lstnew_bonus.c \
 				ft_lstadd_front_bonus.c \

@@ -6,12 +6,11 @@
 /*   By: luhego <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:42:41 by luhego            #+#    #+#             */
-/*   Updated: 2023/03/27 16:54:29 by luhego           ###   ########.fr       */
+/*   Updated: 2023/03/29 18:20:25 by luhego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> //to rm
 
 void	ft_swap(t_numbers **stack, char c)
 {
@@ -24,14 +23,15 @@ void	ft_swap(t_numbers **stack, char c)
 	tmp->next = tmp->next->next;
 	(*stack)->next = tmp;
 	if (c == 'A')
-		printf("sa\n"); // to rm
+		ft_putstr_fd("sa\n", 1);
 	else if (c == 'B')
-		printf("sb\n"); // to rm
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	ft_swap_a_b(t_numbers **stack_a, t_numbers **stack_b)
+void	ft_swap_a_b(t_numbers **stack_a, t_numbers **stack_b, char c)
 {
 	ft_swap(stack_a, 0);
 	ft_swap(stack_b, 0);
-	printf("ss\n"); // to rm
+	if (c)
+		ft_putstr_fd("ss\n", 1);
 }
